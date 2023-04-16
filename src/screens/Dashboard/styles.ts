@@ -6,6 +6,8 @@ import { getStatusBarHeight, getBottomSpace } from "react-native-iphone-x-helper
 
 import { DataListProps } from '.'
 
+interface TransactionListProps extends FlatListProps<DataListProps> {}
+
 export const Container = styled.View`
     flex: 1;
 
@@ -94,12 +96,13 @@ export const Title = styled.Text`
 `;
 
 export const TransactionList = styled(
-    FlatList as new () => FlatList<DataListProps>).attrs({
+    FlatList as new () => FlatList<DataListProps>
+  ).attrs({
     showsVerticalScrollIndicator: false,
     contentContainerStyle: {
-        paddingBottom: getBottomSpace()
-    }
-})``;
+      paddingBottom: getBottomSpace(),
+    },
+  })<TransactionListProps>``;
 
 
 
