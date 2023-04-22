@@ -47,7 +47,7 @@ export function Register() {
   const { 
     control, 
     handleSubmit ,
-    formState: { errors } 
+    formState: { errors }
     } = useForm({
       resolver: yupResolver(schema),
     });
@@ -100,14 +100,14 @@ export function Register() {
               placeholder="Nome"
               autoCapitalize="sentences"
               autoCorrect={false}
-              error={errors.name.message as string}
+              error={errors.name && errors.name.message.toString()}
             />
             <InputForm
               name="amount"
               control={control}
               placeholder="Preço"
               keyboardType="numeric"
-              error={errors.amount.message as string}
+              error={errors.amount && errors.amount.message.toString()}
             />
 
             <TransactionsTypes>
@@ -129,7 +129,10 @@ export function Register() {
               onPress={handleOpenSelectCategoryModal}
             />
           </Fields>
-          <Button title="Enviar" onPress={handleSubmit(handleRegister)} />
+          <Button 
+            title="Enviar" 
+            onPress={handleSubmit(handleRegister)} 
+          />
         </Form>
 
         <Modal visible={categoryModalOpen}>

@@ -1,5 +1,8 @@
 import styled from "styled-components/native";
 import {RFValue} from "react-native-responsive-fontsize";
+import { FieldErrors } from "react-hook-form/dist/types";
+
+
 
 export const Container = styled.View`
   width: 100%;
