@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/native";
 import { RFValue } from "react-native-responsive-fontsize";
 import { Feather } from '@expo/vector-icons';
-import { RectButton } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native";
 
 interface IconProps {
   type: "up" | "down";
@@ -39,7 +39,7 @@ export const Title = styled.Text`
 
 `;
 
-export const Button = styled(RectButton)`
+export const Button = styled(TouchableOpacity)`
   flex-direction: row;
   align-items: center;
   justify-content: center;

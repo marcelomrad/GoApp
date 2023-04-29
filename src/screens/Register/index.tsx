@@ -42,12 +42,11 @@ export function Register() {
 
   const navigation = useNavigation();
 
-
   const schema = Yup.object().shape({
     name: Yup.string().required("Nome é obrigatório"),
-    amount: Yup.number()
+    amount: Yup.string()
+      .required("Preço é obrigatório")
       .typeError("Informe um valor numérico")
-      .positive("O valor não pode ser negativo")
   });
 
   const { 
@@ -83,7 +82,7 @@ export function Register() {
     const newTransaction = {
       id: String(uuid.v4()),
       name: form.name,
-      amount: form.amount,
+      amount: (form.amount).replace(",", "."),
       type: transactionType,
       category: category.key,
       date: new Date(),
